@@ -33,7 +33,7 @@ export default {
         this.$socket.on('image', (data) => {
             // 서버로부터 받은 이미지 경로를 img 태그의 src에 바인딩
             if (data.filePath) {
-                this.imageSrc = `http://localhost:8000${data.filePath}`;
+                 this.imageSrc = `http://localhost:8000${data.filePath}?timestamp=${new Date().getTime()}`; //new Date = 갱신하기 위해(캐시방지)
             }
             else{
                 this.imageSrc = null;
